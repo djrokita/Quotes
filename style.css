@@ -1,4 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+
+/* {
+	outline: 1px solid red
+}
+*/
+
 body {
-	background: yellow;
+	background-image: url('https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg');
+	background-size: cover;
+	background-position: buttom;
+	background-repeat: no-repeat;
 	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
+	font-size: 22px;
+}
+
+header {
+	padding-top: 5%;
+	padding-bottom: 5%;
+	font-weight: normal;
+
+}
+
+header h1 {
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+
+main {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+	text-align: center;
+}
+
+.box {
+	height: 200px;
+	box-sizing: border-box;
+	margin-bottom: 50px;
+}
+
+.quote {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	min-height: 80px;
+	font-style: italic;
+	text-shadow: 1px 1px 1px gray;
+}
+
+.author {
+	text-shadow: 1px 1px 1px gray;
+}
+
+.trigger {
+	background: transparent;
+	border: 2px solid #333;
+	transition: all .3s ease-in-out;
+	font-weight: 600;
+}
+
+.trigger:hover {
+	border-width: 3px;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.tweet {
+	background: #00aced;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	color: #fff;
+	transition: all .3s ease-in-out;
+}
+
+.tweet:hover {
+	background: #0084b4;
+}
+
+.btn {
+	width: 350px;
+	height: 50px;
+	margin-bottom: 40px;
+	cursor: pointer;	
+	border-radius: 5px;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+a.btn {
+	text-decoration: none;
+	line-height: 230%;
+}
+
+.fa {
+	margin-right: 15px;
 }

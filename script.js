@@ -26,7 +26,7 @@ $(document).ready(function () {
 		else {
 			var tweet = tweetLink + encodeURIComponent(tweetText);
 			$('.quote').text(quoteText);
-			$('.author').text(quoteAuthor);
+			$('.author').text('Author: ' + quoteAuthor);
 			$('.tweet').attr('href', tweet);
 		}
 	}
