@@ -1,41 +1,40 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-	var tweetLink = "https://twitter.com/intent/tweet?text=";
-	var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
-	//var quoteUrl = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback="
-	var prefix = "https://cors-anywhere.herokuapp.com/";
+  var tweetLink = "https://twitter.com/intent/tweet?text=";
+  var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+  var prefix = "https://cors-anywhere.herokuapp.com/";
 
-	function getQuote () {
-		$.getJSON(prefix + quoteUrl, createTweet);
-	}
-	
-	$.ajaxSetup({ cache: false });
+  function getQuote() {
+    $.getJSON(prefix + quoteUrl, createTweet);
+  }
 
-	function createTweet(input) {
-		var data = input[0];
-		var quoteAuthor = data.title;
-		var quoteText = $(data.content).text().trim();
+  $.ajaxSetup({
+    cache: false
+  });
 
-		if(!quoteAuthor.length) quoteAuthor = "Unknown author";
+  function createTweet(input) {
+    var data = input[0];
+    var quoteAuthor = data.title;
+    var quoteText = $(data.content).text().trim();
 
-		var tweetText = 'Quote of the day: ' + quoteText +' Author: +' + quoteAuthor; 
+    if (!quoteAuthor.length) quoteAuthor = "Unknown author";
 
-		if(quoteText.length > 140) {
-			getQuote();
-		}
-		else {
-			var tweet = tweetLink + encodeURIComponent(tweetText);
-			$('.quote').text(quoteText);
-			$('.author').text('Author: ' + quoteAuthor);
-			$('.tweet').attr('href', tweet);
-		}
-	}
+    var tweetText = 'Quote of the day: ' + quoteText + ' Author: +' + quoteAuthor;
 
+    if (quoteText.length > 140) {
+      getQuote();
+    } else {
+      var tweet = tweetLink + encodeURIComponent(tweetText);
+      $('.quote').text(quoteText);
+      $('.author').text('Author: ' + quoteAuthor);
+      $('.tweet').attr('href', tweet);
+    }
+  }
 
-	$('.trigger').click(function () {
-		getQuote()
-	});
+  $('.trigger').click(function() {
+    getQuote()
+  });
 
-	getQuote();
+  getQuote();
 
 })
